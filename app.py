@@ -53,3 +53,12 @@ def add_pet():
         return redirect("/")
     else:
         return render_template("add-pet.html", form=form)
+
+
+@app.route("/<int:pet_id>")
+def pet_details(pet_id):
+    """ Display details about pet """
+    pet = Pet.query.filter(pet_id)
+    import pdb
+    pdb.set_trace()
+    return render_template("pet-details.html", pet=pet)
