@@ -20,7 +20,7 @@ class Pet(db.Model):
     photo_url = db.Column(db.String)
     age = db.Column(db.SmallInteger)
     notes = db.Column(db.String)
-    available = db.Column(db.Boolean)
+    available = db.Column(db.Boolean, default=True)
 
     def __repr__(self):
         """ Model representation """
