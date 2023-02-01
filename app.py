@@ -3,7 +3,7 @@
 from flask import Flask, request, redirect, render_template, flash
 from flask_debugtoolbar import DebugToolbarExtension
 from models import connect_db, db, Pet
-
+from forms import AddPetForm
 app = Flask(__name__)
 
 app.config.update(
@@ -29,7 +29,10 @@ def home():
     return render_template("index.html", pets=pets)
 
 
-@app.route("/add")
+@app.route("/add", methods=["GET", "POST"])
 def add_pet():
     """ Add pet form """
+    form = AddPetForm()
+    import pdb
+    pdb.set_trace()
     return render_template("add-pet.html")
