@@ -1,16 +1,28 @@
 {% extends "base.html" %}
 
-{% block title %} Pest {% endblock %}
+{% block title %} Pets {% endblock %}
 
-{% block content %} 
-    <h1>Home page</h1>
-    <ul>
-        {% for pet in pets %}
-        <li>
-            <div>Pet Name: {{ pet.name }}</div>
-            <div>Species: {{ pet.species}}</div>
-            <img src="/static/img/cat.jpg" alt="Image of {{ pet.species }}">
-        </li>
-        {% endfor %}
-    </ul>
+{% block content %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <ul class="flash-msg bg-success text-white p-3 mb-2">
+            {% for category, msg in messages %}
+            <li class="{{ category }}">{{ msg }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
+    <h1 class="text-center">Home page</h1>
+    <main class="container-fluid">
+        <div class="row my-auto">
+            {% for pet in pets %}
+            <div class="col-md-4 col-sm-6 card my-3">
+                <p class="card-header"><a class="link-info text-capitalize fs-5" href="/{{pet.id}}">{{ pet.name }}</a><strong>{% if pet.available %} is available {% endif %}</strong></p>
+                <img class="img-fluid pb-3" src="/static/img/cat.jpg" alt="Image of {{ pet.species }}">
+            </div>
+            {% endfor %}
+            <a class="btn btn-info text-white" href="/add">Add a Pet</a>
+        </div>
+    </main>
 {% endblock %}
