@@ -33,6 +33,18 @@ def home():
 def add_pet():
     """ Add pet form """
     form = AddPetForm()
-    import pdb
-    pdb.set_trace()
-    return render_template("add-pet.html")
+
+    if form.validate_on_submit():
+        name = form.name.data
+        species = form.species.data
+        photo_url = form.photo_url.data
+        age = form.age.data
+        notes = form.notes.data
+        pet = Pet(name=name, species=species,
+                  photo_url=photo_url, age=age, notes=notes)
+        db.session.add(pet)
+        db.session.commit()
+        flash("Successfully added Pet", "success")
+        return redirect("/")
+    else:
+        return render_template("add-pet.html", form=form)
