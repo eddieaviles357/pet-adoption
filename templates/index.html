@@ -4,4 +4,13 @@
 
 {% block content %} 
     <h1>Home page</h1>
+    <ul>
+        {% for pet in pets %}
+        <li>
+            <div>Pet Name: {{ pet.name }}</div>
+            <div>Species: {{ pet.species}}</div>
+            <img src="/static/img/cat.jpg" alt="Image of {{ pet.species }}">
+        </li>
+        {% endfor %}
+    </ul>
 {% endblock %}
