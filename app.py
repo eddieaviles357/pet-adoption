@@ -27,3 +27,9 @@ def home():
     """ Home page """
     pets = Pet.get_all_pets()
     return render_template("index.html", pets=pets)
+
+
+@app.route("/add")
+def add_pet():
+    """ Add pet form """
+    return render_template("add-pet.html")
