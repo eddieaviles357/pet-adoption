@@ -5,21 +5,21 @@
 {% block content %}
     {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
-        <ul class="flash-msg bg-success text-white p-3 mb-2">
             {% for category, msg in messages %}
-            <li class="{{ category }}">{{ msg }}</li>
+                <div class="flash-msg text-white p-3 mb-2 {% if category == 'success' %} bg-success {% else %} bg-danger {% endif %}">{{ msg }}</div>
             {% endfor %}
-        </ul>
         {% endif %}
     {% endwith %}
 
-    <h1 class="text-center">Home page</h1>
+    <h1 class="text-center">Adopt a Pet</h1>
     <main class="container-fluid">
         <div class="row my-auto">
             {% for pet in pets %}
             <div class="col-md-4 col-sm-6 card my-3">
                 <p class="card-header"><a class="link-info text-capitalize fs-5" href="/{{pet.id}}">{{ pet.name }}</a><strong>{% if pet.available %} is available {% endif %}</strong></p>
-                <img class="img-fluid pb-3" src="/static/img/cat.jpg" alt="Image of {{ pet.species }}">
+                <a href="/{{pet.id}}">
+                    <img class="img-fluid pb-3" src="{{ pet.photo_url }}" alt="Image of {{ pet.species }}">
+                </a>
             </div>
             {% endfor %}
             <a class="btn btn-info text-white" href="/add">Add a Pet</a>
