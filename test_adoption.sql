@@ -15,7 +15,7 @@ CREATE TABLE pets
     photo_url TEXT,
     age SMALLINT,
     notes TEXT,
-    available BOOLEAN DEFAULT true
+    available BOOLEAN NOT NULL DEFAULT true
 );
 
 INSERT INTO pets (name,species,photo_url,age,notes, available)
