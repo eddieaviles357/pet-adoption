@@ -18,9 +18,10 @@ CREATE TABLE pets
     available BOOLEAN DEFAULT true
 );
 
-INSERT INTO pets (name,species,photo_url,age,notes)
+INSERT INTO pets (name,species,photo_url,age,notes, available)
 VALUES
-('meow', 'American Wirehair Cat','https://unsplash.com/photos/LEpfefQf4rU', 2, 'Eats banana'),
-('pele', 'Abyssinian Cat', 'https://unsplash.com/photos/LEpfefQf4rU', 1, 'Easts too fast'),
-('maggie', 'Bengal Cat', 'https://unsplash.com/photos/LEpfefQf4rU', 3, 'Mean to other cats'),
-('persia', 'Bombay Cat', 'https://unsplash.com/photos/LEpfefQf4rU', 3, 'Really likes to cuddle');
+('meow', 'cat','https://unsplash.com/photos/LEpfefQf4rU', 2, 'Eats banana', true),
+('pele', 'cat', 'https://unsplash.com/photos/LEpfefQf4rU', 1, 'Easts too fast', true),
+('maggie', 'cat', 'https://unsplash.com/photos/LEpfefQf4rU', 3, 'Good to cats', false),
+('maggie', 'cat', 'https://unsplash.com/photos/LEpfefQf4rU', 2, 'Mean to other cats', true),
+('persia', 'cat', 'https://unsplash.com/photos/LEpfefQf4rU', 3, 'Really likes to cuddle', false);
