@@ -10,8 +10,8 @@
                 <div class="">
                     <h5 class="card-title fs-3">{{ pet.name }}</h5>
                     <span class="d-block">Species: {{ pet.species }}</span>
-                    <span class="d-block">Age: {% if pet.available %} {{ pet.age }} {% else %} NA {% endif %}</span>
-                    <p> Notes:{% if pet.available %} {{ pet.notes }} {% else %} NA {% endif %}</p>
+                    <span class="d-block">Age: {% if pet.age %} {{ pet.age }} {% else %} NA {% endif %}</span>
+                    <p> Notes:{% if pet.notes %} {{ pet.notes }} {% else %} NA {% endif %}</p>
                     <span class="d-block">Available: {% if pet.available %} Yes {% else %} No {% endif %}</span>
                 </div>
                 <div class="">
