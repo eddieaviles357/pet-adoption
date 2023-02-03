@@ -79,6 +79,7 @@ def pet_details(pet_id):
         pet.notes = form.notes.data
         pet.available = form.available.data
         # update pet
+
         db.session.commit()
         flash("Updated successful", "success")
         return redirect("/")
