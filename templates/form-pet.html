@@ -3,7 +3,7 @@
 {% for field in form 
     if field.widget.input_type != 'hidden' %}
     <div class="form-group mb-3 col-sm-6">
-        
+
         {{ field.label(class_="form-label ") }}
         {% if field.name == 'species' %} 
             {{ field(class_="form-select")}}
